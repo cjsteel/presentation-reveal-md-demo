@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Using reveal-md</title>
+        <link rel="stylesheet" href="./css/reveal.css">
+        <link rel="stylesheet" href="./css/theme/blood.css" id="theme">
+        <link rel="stylesheet" href="./css/highlight/zenburn.css">
+        <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print">
+
+
+    </head>
+    <body>
+
+        <div class="reveal">
+            <div class="slides"><section ><section data-markdown><script type="text/template">
+# reveal-md
+
+Using [reveal-md][1] to create [reveal.js][2] presentations with [markdown][3] while maintaining a separation of [content][6] and [presentation][7] a la [csszengarden][8]
+
+.
+.
+
+----------------------------------
+created by [csteel](https://github.com/csteel) | 2018-10-01 | [src][4] | [pdf][5]
+
+
+[1]: https://github.com/webpro/reveal-md
+[2]: http://lab.hakim.se/reveal-js/
+[3]: https://daringfireball.net/projects/markdown/
+[4]: https://github.com/cjsteel/presentation-reveal-md-demo
+[5]: https://github.com/cjsteel/presentation-reveal-md-demo/blob/master/reveal-md-demo.pdf
+[6]: https://alistapart.com/article/separationdilemma
+[7]: https://en.wikipedia.org/wiki/Separation_of_content_and_presentation
+[8]: http://www.csszengarden.com
+
+
+<aside class="notes"><p>reveal.js is great, reveal-md allows you to create beautiful reveal.js presentations from your markdown files.</p>
+</aside></script></section><section data-markdown><script type="text/template">
+## reveal.js
+
+The reveal.js framework is used to create presentations using HTML. It includes has many handy features including:
+
+* Nested slides
+* PDF export
+* Speaker notes and timer.
+* A JavaScript API
+
+<aside class="notes"><p>You can create Markdown content using reveal.js but it is intermingled wi$</p>
+</aside></script></section><section data-markdown><script type="text/template">
+## reveal-md
+
+reveal-md allows you to leverage many of the features of reveal.js while maintaining a separation of content, code and style.
+
+* Easy to focus on content.
+* Create new content quickly.
+* Maintain consistent styles across the presentation.
+* Separation is voluntary.
+
+<aside class="notes"><p>Maintaining separate code, style and content can be annoying for coders.</p>
+</aside></script></section><section data-markdown><script type="text/template">
+## Requirements
+
+* npm
+* reveal-md
+
+<aside class="notes"><p>Here I will outline how to do this in your home directory without root or sudo access but you can do this in whatever way you like.</p>
+</aside></script></section><section data-markdown><script type="text/template">
+## Installing npm in your home directory
+
+To download v8.12.0 of nodejs run the following commands:
+
+```shell
+mkdir -p ~/bin
+cd ~/bin
+wget https://nodejs.org/dist/v8.12.0/node-v8.12.0-linux-x64.tar.xz
+wget https://nodejs.org/dist/v8.12.0/SHASUMS256.txt.asc
+grep node-v8.12.0-linux-x64.tar.xz SHASUMS256.txt.asc | sha256sum -c -
+```
+
+Confirm our checksum:
+
+```shell
+node-v8.12.0-linux-x64.tar.xz: OK
+```
+</script></section><section data-markdown><script type="text/template">
+### Unarchive node.js
+
+Next we extract the contents of our tar file to our ~/bin directory.
+
+```shell
+tar -xf node-v8.12.0-linux-x64.tar.xz
+```
+
+This will create a new directory:
+
+```shell
+~/bin/node-v8.12.0-linux-x64/bin`
+```
+
+which contains the *npm* executable.
+</script></section><section data-markdown><script type="text/template">
+### Make our newest `npm` the default version.
+
+Edit ~/.bashrc and add the followoing export command to the end of the file"
+
+```shell
+export PATH=~/bin/node-v8.12.0-linux-x64/bin:$PATH
+```
+
+Source your edited *~/.bashrc* in order apply the new `export` to your current terminal session.
+
+```shell
+source ~/.bashrc
+```
+
+<aside class="notes"><p>Adding our binaries directory to the beginning of the path ensures that this version of <em>npm</em> will be executed.</p>
+</aside></script></section><section data-markdown><script type="text/template">
+### Test npm
+
+Confirm that installed version  is first in your PATH
+
+```shell
+which npm
+```
+
+Confirm that `npm` is working as expected:
+
+```shell
+npm --version
+```
+
+Output example
+
+```shell
+6.4.1
+```
+
+OK, npm iw working.</script></section><section data-markdown><script type="text/template">
+## installing reveal-md
+
+### Installation
+
+```shell
+npm install -g reveal-md
+```
+
+### Testing reveal-md
+
+Confirm that the reveal-md executable is working as expected.
+
+```shell
+reveal-md --version
+```
+
+Output expected:
+
+```shell
+2.3.0
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Creating a new reveal-md project
+
+Next we will:
+
+* Create a basic presentation.
+* Customize some reveal-md presentation options.
+* Customize our theme.
+* View our presentation.
+</script></section><section data-markdown><script type="text/template">
+### Creating our content
+
+All of our slide content will go into a slides.md file. You can call it anything you like, we will stick with *slides.md* for this how to.
+
+```shell
+mkdir -p ~/presentations/my-presentation
+cd ~/presentations/my-presentation
+touch slides.md
+
+</script></section></section></div>
+        </div>
+
+        <script src="./lib/js/head.min.js"></script>
+        <script src="./js/reveal.js"></script>
+
+        <script>
+            function extend() {
+              var target = {};
+              for (var i = 0; i < arguments.length; i++) {
+                var source = arguments[i];
+                for (var key in source) {
+                  if (source.hasOwnProperty(key)) {
+                    target[key] = source[key];
+                  }
+                }
+              }
+              return target;
+            }
+
+            // Optional libraries used to extend on reveal.js
+            var deps = [
+              { src: './lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: './plugin/zoom-js/zoom.js', async: true },
+              { src: './plugin/notes/notes.js', async: true },
+              { src: './plugin/math/math.js', async: true }
+            ];
+
+            // default options to init reveal.js
+            var defaultOptions = {
+              controls: true,
+              progress: true,
+              history: true,
+              center: true,
+              transition: 'default', // none/fade/slide/convex/concave/zoom
+              dependencies: deps
+            };
+
+            // options from URL query string
+            var queryOptions = Reveal.getQueryHash() || {};
+
+            var options = {"transition":"fade"};
+            options = extend(defaultOptions, options, queryOptions);
+        </script>
+
+
+        <script>
+          Reveal.initialize(options);
+        </script>
+    </body>
+</html>

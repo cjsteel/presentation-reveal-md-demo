@@ -1,69 +1,72 @@
 ---
 title: Using reveal-md
-theme: night
+theme: blood
 revealOptions:
     transition: 'fade'
 ---
 # reveal-md
 
-a faster way to create reveal.js presentations using *Markdown* the markup language.
+Using [reveal-md][1] to create [reveal.js][2] presentations with [markdown][3] while maintaining a separation of [content][6] and [presentation][7] a la [csszengarden][8]
 
-Note:  reveal.js a a great projects that can be used to create professional presentations. reveal-md
+.
+.
 
----
+----------------------------------
+created by [csteel](https://github.com/csteel) | 2018-10-01 | [src][4] | [pdf][5]
 
-## Overview
 
-We are going do the following:
+[1]: https://github.com/webpro/reveal-md
+[2]: http://lab.hakim.se/reveal-js/
+[3]: https://daringfireball.net/projects/markdown/
+[4]: https://github.com/cjsteel/presentation-reveal-md-demo
+[5]: https://github.com/cjsteel/presentation-reveal-md-demo/blob/master/reveal-md-demo.pdf
+[6]: https://alistapart.com/article/separationdilemma
+[7]: https://en.wikipedia.org/wiki/Separation_of_content_and_presentation
+[8]: http://www.csszengarden.com
 
-* Install reveal-md and it's requirements.
-* Learn how to create a presentation.
-* How to make our presentation a stand alone package.
-* How to export our presentation to PDF.
-* How to share a presentation.
+
+Note:  reveal.js is great, reveal-md allows you to create beautiful reveal.js presentations from your markdown files.
 
 ----
 
 ## reveal.js
 
-reveal.js is a framework for creating presentations using HTML. It has many advanced features including:
+The reveal.js framework is used to create presentations using HTML. It includes has many handy features including:
 
 * Nested slides
 * PDF export
 * Speaker notes and timer.
 * A JavaScript API
 
-Note: You can create Markdown content using reveal.js but it is intermingled with code. reveal-md allows for an almost complete separation of code and content.
+Note: You can create Markdown content using reveal.js but it is intermingled wi$
 
----
+----
+
+## reveal-md
+
+reveal-md allows you to leverage many of the features of reveal.js while maintaining a separation of content, code and style.
+
+* Easy to focus on content.
+* Create new content quickly.
+* Maintain consistent styles across the presentation.
+* Separation is voluntary.
+
+Note: Maintaining separate code, style and content can be annoying for coders.
+
+----
 
 ## Requirements
 
-Creating new reveal-md presentation requires a little bit of preparation including:
-
-* installing npm
-* installing git
-* installing reveal-md
+* npm
+* reveal-md
 
 Notes: Here I will outline how to do this in your home directory without root or sudo access but you can do this in whatever way you like.
 
 ----
 
-## Installing npm
+## Installing npm in your home directory
 
-Most Linux systems will have a version available via a package manager. Here we explain how to install it to your home directory. This has some advantages including:
-
-* root or sudo access is *not* required.
-* Allows for the support of *multiple versions*.
-* The presentations requirements can be saved to a git respository.
-
-Notes: If you are running multiple npm, git or reveal-md versions you can switch between them by editing the export command we will see later.
-
-----
-
-### Download node.js code
-
-Here we download the code and confirm it's integrity.
+To download v8.12.0 of nodejs run the following commands:
 
 ```shell
 mkdir -p ~/bin
@@ -73,7 +76,7 @@ wget https://nodejs.org/dist/v8.12.0/SHASUMS256.txt.asc
 grep node-v8.12.0-linux-x64.tar.xz SHASUMS256.txt.asc | sha256sum -c -
 ```
 
-Confirm that the checksum for our tar.xz file has not been corrupted or tampered with.
+Confirm our checksum:
 
 ```shell
 node-v8.12.0-linux-x64.tar.xz: OK
