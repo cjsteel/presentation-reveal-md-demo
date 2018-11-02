@@ -1,6 +1,6 @@
 ---
 title: Using reveal-md
-theme: blood
+theme: night
 revealOptions:
     transition: 'fade'
 ---
@@ -31,7 +31,7 @@ Note:  reveal.js is great, reveal-md allows you to create beautiful reveal.js pr
 
 ## reveal.js
 
-The reveal.js framework is used to create presentations using HTML. It includes has many handy features including:
+The reveal.js framework has been around a awhile  has many handy features including:
 
 * Nested slides
 * PDF export
@@ -46,9 +46,8 @@ Note: You can create Markdown content using reveal.js but it is intermingled wi$
 
 reveal-md allows you to leverage many of the features of reveal.js while maintaining a separation of content, code and style.
 
-* Easy to focus on content.
-* Create new content quickly.
-* Maintain consistent styles across the presentation.
+* Focus on content.
+* Maintain consistent styles.
 * Separation is voluntary.
 
 Note: Maintaining separate code, style and content can be annoying for coders.
@@ -122,7 +121,7 @@ Note: Adding our binaries directory to the beginning of the path ensures that th
 
 ### Test npm
 
-Confirm that installed version  is first in your PATH
+Confirm that the installed version is first on your path
 
 ```shell
 which npm
@@ -140,7 +139,8 @@ Output example
 6.4.1
 ```
 
-OK, npm iw working.
+Good to go.
+
 ----
 
 ## installing reveal-md
@@ -167,23 +167,60 @@ Output expected:
 
 ---
 
-## Creating a new reveal-md project
+## Configuration and options
 
-Next we will:
-
-* Create a basic presentation.
-* Customize some reveal-md presentation options.
-* Customize our theme.
-* View our presentation.
+* reveal-md.json configurations
+* slides.md presentation options
 
 ----
 
-### Creating our content
+### reveal-md.json
 
-All of our slide content will go into a slides.md file. You can call it anything you like, we will stick with *slides.md* for this how to.
+Options can be configure in a file called reveal-md.json. Here we we enable controls and progress
+
+Create reveal-md.json
 
 ```shell
-mkdir -p ~/presentations/my-presentation
-cd ~/presentations/my-presentation
-touch slides.md
+touch reveal-md.json
+```
 
+and add some options:
+
+```shell
+{
+  "controls": true,
+  "progress": true,
+  "separator": "\n# \n",
+  "verticalSeparator": "\n## \n",
+}
+```
+
+---
+
+## slides.md
+
+Create a file to hold your slide deck
+
+```shell
+touch slides.md
+```
+
+```code
+---
+title: Foobar
+separator: <!--s-->
+verticalSeparator: <!--v-->
+theme: solarized
+revealOptions:
+    transition: 'fade'
+---
+Foo
+
+Note: test note
+
+<!--s-->
+
+# Bar
+
+<!--v-->
+```
