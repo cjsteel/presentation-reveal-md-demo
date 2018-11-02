@@ -167,60 +167,49 @@ Output expected:
 
 ---
 
-## Configuration and options
+## Creating a new presentation
 
-* reveal-md.json configurations
-* slides.md presentation options
+You can clone my repository and customize it the way you like to create your own base presentation.
+
+My demo has includes three files
+
+```shell
+css/overide.css  # Used to overide css elements in the default theme.
+reveal-md.json   # Used to configure presentation options
+slides.md        # Where you create your slides using markdown
+```
+
+See [reveal-md documentation site][1] for detailed informations.
+
+[1]: http://webpro.github.io/reveal-md/
 
 ----
 
-### reveal-md.json
-
-Options can be configure in a file called reveal-md.json. Here we we enable controls and progress
-
-Create reveal-md.json
+## Clone your base presentation
 
 ```shell
-touch reveal-md.json
+mkdir ~/projects/presentations/
+cd ~/projects/presentations
+git clone git@github.com:cjsteel/presentation-reveal-md-demo.git my-presentation
 ```
 
-and add some options:
+----
+
+## Start the build in server
+
+In a terminal session start up reveal-md
 
 ```shell
-{
-  "controls": true,
-  "progress": true,
-  "separator": "\n# \n",
-  "verticalSeparator": "\n## \n",
-}
+cd my-presentation
+reveal-md -w slides.md --css css/overide.css
 ```
 
----
+## Customize
 
-## slides.md
-
-Create a file to hold your slide deck
+In a second terminal session, or using your favortie GUI editor open slides.md for editing
 
 ```shell
-touch slides.md
+nano slides.md
 ```
 
-```code
----
-title: Foobar
-separator: <!--s-->
-verticalSeparator: <!--v-->
-theme: solarized
-revealOptions:
-    transition: 'fade'
----
-Foo
-
-Note: test note
-
-<!--s-->
-
-# Bar
-
-<!--v-->
-```
+----
