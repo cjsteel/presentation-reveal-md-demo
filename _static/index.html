@@ -6,9 +6,10 @@
 
         <title>Using reveal-md</title>
         <link rel="stylesheet" href="./css/reveal.css">
-        <link rel="stylesheet" href="./css/theme/blood.css" id="theme">
+        <link rel="stylesheet" href="./css/theme/night.css" id="theme">
         <link rel="stylesheet" href="./css/highlight/zenburn.css">
         <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print">
+          <link rel="stylesheet" href="./_assets/css/overide.css">
 
 
     </head>
@@ -18,7 +19,7 @@
             <div class="slides"><section ><section data-markdown><script type="text/template">
 # reveal-md
 
-Using [reveal-md][1] to create [reveal.js][2] presentations with [markdown][3] while maintaining a separation of [content][6] and [presentation][7] a la [csszengarden][8]
+How to use [reveal-md][1] to create [reveal.js][2] presentations with [markdown][3] while maintaining a separation of [content][6] and [presentation][7] a la [csszengarden][8]
 
 .
 .
@@ -31,7 +32,7 @@ created by [csteel](https://github.com/csteel) | 2018-10-01 | [src][4] | [pdf][5
 [2]: http://lab.hakim.se/reveal-js/
 [3]: https://daringfireball.net/projects/markdown/
 [4]: https://github.com/cjsteel/presentation-reveal-md-demo
-[5]: https://github.com/cjsteel/presentation-reveal-md-demo/blob/master/reveal-md-demo.pdf
+[5]: https://github.com/cjsteel/presentation-reveal-md-demo/blob/master/resources/reveal-md-demo.pdf
 [6]: https://alistapart.com/article/separationdilemma
 [7]: https://en.wikipedia.org/wiki/Separation_of_content_and_presentation
 [8]: http://www.csszengarden.com
@@ -41,7 +42,7 @@ created by [csteel](https://github.com/csteel) | 2018-10-01 | [src][4] | [pdf][5
 </aside></script></section><section data-markdown><script type="text/template">
 ## reveal.js
 
-The reveal.js framework is used to create presentations using HTML. It includes has many handy features including:
+The *reveal.js* framework has been around a while and includes many features:
 
 * Nested slides
 * PDF export
@@ -52,19 +53,21 @@ The reveal.js framework is used to create presentations using HTML. It includes 
 </aside></script></section><section data-markdown><script type="text/template">
 ## reveal-md
 
-reveal-md allows you to leverage many of the features of reveal.js while maintaining a separation of content, code and style.
+*reveal-md* allows you to leverage reveal.js while maintaining a better separation of content, code and style.
 
-* Easy to focus on content.
-* Create new content quickly.
-* Maintain consistent styles across the presentation.
-* Separation is voluntary.
+* Focus on content.
+* Maintain consistent styles.
+* Separation is voluntary, nothing prevents you from mixing in code when required.
 
-<aside class="notes"><p>Maintaining separate code, style and content can be annoying for coders.</p>
+<aside class="notes"><p>Maintaining separate code, style and content is considered to be a best practice but sometimes....</p>
 </aside></script></section><section data-markdown><script type="text/template">
 ## Requirements
 
+* git
 * npm
 * reveal-md
+
+Instructions to follow
 
 <aside class="notes"><p>Here I will outline how to do this in your home directory without root or sudo access but you can do this in whatever way you like.</p>
 </aside></script></section><section data-markdown><script type="text/template">
@@ -102,15 +105,15 @@ This will create a new directory:
 
 which contains the *npm* executable.
 </script></section><section data-markdown><script type="text/template">
-### Make our newest `npm` the default version.
+### Make our `npm` the default `npm`
 
-Edit ~/.bashrc and add the followoing export command to the end of the file"
+Add the following `export` command to the end of your ~/.bashrc file.
 
 ```shell
 export PATH=~/bin/node-v8.12.0-linux-x64/bin:$PATH
 ```
 
-Source your edited *~/.bashrc* in order apply the new `export` to your current terminal session.
+Now source your `~/.bashrc` to apply the new `export` to your current terminal session.:
 
 ```shell
 source ~/.bashrc
@@ -118,36 +121,40 @@ source ~/.bashrc
 
 <aside class="notes"><p>Adding our binaries directory to the beginning of the path ensures that this version of <em>npm</em> will be executed.</p>
 </aside></script></section><section data-markdown><script type="text/template">
-### Test npm
+### Testing your npm installalation
 
-Confirm that installed version  is first in your PATH
+Confirm that the `npm` version we installed is the first `npm` version on your path so that it gets executed whenever  you run the `npm` command.
 
 ```shell
 which npm
 ```
 
+Output example:
+
+```shell
+/home/csteel/bin/node-v8.12.0-linux-x64/bin/npm
+```
+</script></section><section data-markdown><script type="text/template">
+### Testing the `npm` executable
 Confirm that `npm` is working as expected:
 
 ```shell
 npm --version
 ```
 
-Output example
+Output example:
 
 ```shell
 6.4.1
 ```
-
-OK, npm iw working.</script></section><section data-markdown><script type="text/template">
+</script></section><section data-markdown><script type="text/template">
 ## installing reveal-md
-
-### Installation
 
 ```shell
 npm install -g reveal-md
 ```
 
-### Testing reveal-md
+### Test reveal-md
 
 Confirm that the reveal-md executable is working as expected.
 
@@ -155,31 +162,75 @@ Confirm that the reveal-md executable is working as expected.
 reveal-md --version
 ```
 
-Output expected:
+Output expected (when this was last edited):
 
 ```shell
-2.3.0
+2.4.0
+```
+
+<aside class="notes"><p>I stopped editing here!</p>
+</aside></script></section></section><section ><section data-markdown><script type="text/template">
+## Creating a new presentation
+
+You can clone my repository and customize it the way you like to create your own base presentation.
+
+My demo has includes three files
+
+```shell
+css/overide.css  # Used to overide css elements in the default theme.
+reveal-md.json   # Used to configure presentation options
+slides.md        # Where you create your slides using markdown
+```
+
+See [reveal-md documentation site][1] for detailed information.
+
+[1]: http://webpro.github.io/reveal-md/
+</script></section><section data-markdown><script type="text/template">
+## Clone your base presentation
+
+```shell
+mkdir ~/projects/presentations/
+cd ~/projects/presentations
+git clone git@github.com:cjsteel/presentation-reveal-md-demo.git my-presentation
+```
+</script></section><section data-markdown><script type="text/template">
+## Start the included server
+
+In a terminal session start up reveal-md
+
+```shell
+cd my-presentation
+reveal-md -w slides.md --css css/overide.css
 ```
 </script></section></section><section ><section data-markdown><script type="text/template">
-## Creating a new reveal-md project
+## Customize your presentation
 
-Next we will:
-
-* Create a basic presentation.
-* Customize some reveal-md presentation options.
-* Customize our theme.
-* View our presentation.
-</script></section><section data-markdown><script type="text/template">
-### Creating our content
-
-All of our slide content will go into a slides.md file. You can call it anything you like, we will stick with *slides.md* for this how to.
+In a second terminal session, or using your favortie GUI editor open slides.md for editing
 
 ```shell
-mkdir -p ~/presentations/my-presentation
-cd ~/presentations/my-presentation
-touch slides.md
+nano slides.md
+```
+</script></section><section data-markdown><script type="text/template">
+## More to come
 
-</script></section></section></div>
+This demo is a *work in progress*... more to come.
+</script></section><section data-markdown><script type="text/template">
+## Create a PDF
+
+Create or update a PDF version of your presentation
+
+```shell
+reveal-md slides.md --css css/overide.css --print resources/reveal-md-demo-pdf
+```
+</script></section><section data-markdown><script type="text/template">
+## Create a static demo
+
+Creating a local static copy of your demo might be a good idea as a backup.
+
+```shell
+reveal-md slides.md --css css/overide.css --print resources/reveal-md-demo-pdf
+```
+</script></section><section data-markdown><script type="text/template"></script></section></section></div>
         </div>
 
         <script src="./lib/js/head.min.js"></script>

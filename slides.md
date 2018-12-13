@@ -31,7 +31,7 @@ Note:  reveal.js is great, reveal-md allows you to create beautiful reveal.js pr
 
 ## reveal.js
 
-The reveal.js framework has been around a while and includes many features:
+The *reveal.js* framework has been around a while and includes many features:
 
 * Nested slides
 * PDF export
@@ -44,20 +44,23 @@ Note: You can create Markdown content using reveal.js but it is intermingled wi$
 
 ## reveal-md
 
-reveal-md allows you to leverage many of the features of reveal.js while maintaining a separation of content, code and style.
+*reveal-md* allows you to leverage reveal.js while maintaining a better separation of content, code and style.
 
 * Focus on content.
 * Maintain consistent styles.
-* Separation is voluntary.
+* Separation is voluntary, nothing prevents you from mixing in code when required.
 
-Note: Maintaining separate code, style and content can be annoying for coders.
+Note: Maintaining separate code, style and content is considered to be a best practice but sometimes....
 
 ----
 
 ## Requirements
 
+* git
 * npm
 * reveal-md
+
+Instructions to follow
 
 Notes: Here I will outline how to do this in your home directory without root or sudo access but you can do this in whatever way you like.
 
@@ -101,15 +104,15 @@ which contains the *npm* executable.
 
 ----
 
-### Make our newest `npm` the default version.
+### Make our `npm` the default `npm`
 
-Run the export command below or to make reveal-md available every time you use your system edit ~/.bashrc and add the command to the end of your ~/.bashrc and then source it.
+Add the following `export` command to the end of your ~/.bashrc file.
 
 ```shell
 export PATH=~/bin/node-v8.12.0-linux-x64/bin:$PATH
 ```
 
-Source your edited *~/.bashrc* in order apply the new `export` to your current terminal session.
+Now source your `~/.bashrc` to apply the new `export` to your current terminal session.:
 
 ```shell
 source ~/.bashrc
@@ -119,39 +122,44 @@ Note: Adding our binaries directory to the beginning of the path ensures that th
 
 ----
 
-### Test npm
+### Testing your npm installalation
 
-Confirm that the installed version is first on your path
+Confirm that the `npm` version we installed is the first `npm` version on your path so that it gets executed whenever  you run the `npm` command.
 
 ```shell
 which npm
 ```
 
+Output example:
+
+```shell
+/home/csteel/bin/node-v8.12.0-linux-x64/bin/npm
+```
+
+----
+
+### Testing the `npm` executable
 Confirm that `npm` is working as expected:
 
 ```shell
 npm --version
 ```
 
-Output example
+Output example:
 
 ```shell
 6.4.1
 ```
 
-Good to go.
-
 ----
 
 ## installing reveal-md
-
-### Installation
 
 ```shell
 npm install -g reveal-md
 ```
 
-### Testing reveal-md
+### Test reveal-md
 
 Confirm that the reveal-md executable is working as expected.
 
@@ -164,6 +172,8 @@ Output expected (when this was last edited):
 ```shell
 2.4.0
 ```
+
+Note: I stopped editing here! 
 
 ---
 
@@ -179,7 +189,7 @@ reveal-md.json   # Used to configure presentation options
 slides.md        # Where you create your slides using markdown
 ```
 
-See [reveal-md documentation site][1] for detailed informations.
+See [reveal-md documentation site][1] for detailed information.
 
 [1]: http://webpro.github.io/reveal-md/
 
@@ -195,7 +205,7 @@ git clone git@github.com:cjsteel/presentation-reveal-md-demo.git my-presentation
 
 ----
 
-## Start the build in server
+## Start the included server
 
 In a terminal session start up reveal-md
 
@@ -204,12 +214,40 @@ cd my-presentation
 reveal-md -w slides.md --css css/overide.css
 ```
 
-## Customize
+---
+
+## Customize your presentation
 
 In a second terminal session, or using your favortie GUI editor open slides.md for editing
 
 ```shell
 nano slides.md
+```
+
+----
+
+## More to come
+
+This demo is a *work in progress*... more to come.
+
+----
+
+## Create a PDF
+
+Create or update a PDF version of your presentation
+
+```shell
+reveal-md slides.md --css css/overide.css --print resources/reveal-md-demo-pdf
+```
+
+----
+
+## Create a static demo
+
+Creating a local static copy of your demo might be a good idea as a backup.
+
+```shell
+reveal-md slides.md --css css/overide.css --static
 ```
 
 ----
