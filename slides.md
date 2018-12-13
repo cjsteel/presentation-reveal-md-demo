@@ -6,7 +6,7 @@ revealOptions:
 ---
 # reveal-md
 
-Using [reveal-md][1] to create [reveal.js][2] presentations with [markdown][3] while maintaining a separation of [content][6] and [presentation][7] a la [csszengarden][8]
+How to use [reveal-md][1] to create [reveal.js][2] presentations with [markdown][3] while maintaining a separation of [content][6] and [presentation][7] a la [csszengarden][8]
 
 .
 .
@@ -19,7 +19,7 @@ created by [csteel](https://github.com/csteel) | 2018-10-01 | [src][4] | [pdf][5
 [2]: http://lab.hakim.se/reveal-js/
 [3]: https://daringfireball.net/projects/markdown/
 [4]: https://github.com/cjsteel/presentation-reveal-md-demo
-[5]: https://github.com/cjsteel/presentation-reveal-md-demo/blob/master/reveal-md-demo.pdf
+[5]: https://github.com/cjsteel/presentation-reveal-md-demo/blob/master/resources/reveal-md-demo.pdf
 [6]: https://alistapart.com/article/separationdilemma
 [7]: https://en.wikipedia.org/wiki/Separation_of_content_and_presentation
 [8]: http://www.csszengarden.com
@@ -31,7 +31,7 @@ Note:  reveal.js is great, reveal-md allows you to create beautiful reveal.js pr
 
 ## reveal.js
 
-The reveal.js framework has been around a awhile  has many handy features including:
+The reveal.js framework has been around a while and includes many features:
 
 * Nested slides
 * PDF export
@@ -103,7 +103,7 @@ which contains the *npm* executable.
 
 ### Make our newest `npm` the default version.
 
-Edit ~/.bashrc and add the followoing export command to the end of the file"
+Run the export command below or to make reveal-md available every time you use your system edit ~/.bashrc and add the command to the end of your ~/.bashrc and then source it.
 
 ```shell
 export PATH=~/bin/node-v8.12.0-linux-x64/bin:$PATH
@@ -159,10 +159,10 @@ Confirm that the reveal-md executable is working as expected.
 reveal-md --version
 ```
 
-Output expected:
+Output expected (when this was last edited):
 
 ```shell
-2.3.0
+2.4.0
 ```
 
 ---
